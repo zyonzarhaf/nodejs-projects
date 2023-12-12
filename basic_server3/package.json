@@ -1,0 +1,9 @@
+{
+  "name": "basic_server3",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "http-status-codes": "^2.3.0"
+  }
+}
