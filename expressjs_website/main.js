@@ -1,5 +1,4 @@
-const port = 3000,
-   viewsController = require("./controllers/viewsController"),
+const viewsController = require("./controllers/viewsController"),
    errorController = require("./controllers/errorController"),
    layouts = require("express-ejs-layouts");
    express = require("express"),
@@ -36,6 +35,6 @@ app.use(errorController.logErrors);
 app.use(errorController.respondNoResourceFound);
 app.use(errorController.respondInternalError);
 
-app.listen(port, () => {
+app.listen(app.get("port"), () => {
    console.log(`Server is listening on port ${ app.get("port") }`);
 });
