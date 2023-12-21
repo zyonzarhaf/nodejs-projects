@@ -42,84 +42,26 @@
           are as follows:
         </p>
         <div class="row py-4">
-          <div class="col-md-6 col-lg-4 my-4 text-center">
-            <div class="card">
-              <div class="card-header border-0">
-                <i class="display-1 text-success fa-brands fa-node"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-capitalize">
-                  fundamentals
-                </h5> 
-                <p class="card-text">
-                  Learn the basics of Node.js and its role in server-side
-                  JavaScript development.
-                </p>
-                <button type="button" class="btn btn-outline-success text-capitalize">
-                  learn more
-                </button>
-              </div>
-            </div>
-          </div> 
-
-          <div class="col-md-6 col-lg-4 my-4 text-center">
-            <div class="card">
-              <div class="card-header border-0">
-                <i class="display-4 text-success fa-solid fa-puzzle-piece"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-capitalize">
-                  building RESTful APIs with node and express.js
-                </h5> 
-                <p class="card-text">
-                  Learn the basics of Node.js and its role in server-side
-                  JavaScript development.
-                </p>
-                <button type="button" class="btn btn-outline-success text-capitalize">
-                  learn more
-                </button>
+          <% courseModules.map((module) => {%>
+            <div class="col-md-6 col-lg-4 my-4 text-center">
+              <div class="card">
+                <div class="card-header border-0">
+                  <i class="display-1 text-success"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize">
+                    <%= module.title %>
+                  </h5> 
+                  <p class="card-text">
+                    <%= module.description %>
+                  </p>
+                  <button type="button" class="btn btn-outline-success text-capitalize">
+                    learn more
+                  </button>
+                </div>
               </div>
             </div>
-          </div> 
-          <div class="col-md-6 col-lg-4 my-4 text-center">
-            <div class="card">
-              <div class="card-header border-0">
-                <i class="display-4 text-success fa-solid fa-database"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-capitalize">
-                  data storage and retrieval with mongoose
-                </h5> 
-                <p class="card-text">
-                  Learn the basics of Node.js and its role in server-side
-                  JavaScript development.
-                </p>
-                <button type="button" class="btn btn-outline-success text-capitalize">
-                  learn more
-                </button>
-              </div>
-            </div>
-          </div> 
-          <div class="col-md-6 col-lg-4 my-4 text-center">
-            <div class="card">
-              <div class="card-header border-0">
-                <i class="display-4 text-success fa-solid fa-cloud"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-capitalize">
-                  unit integration and testing
-                </h5> 
-                <p class="card-text">
-                  Learn the basics of Node.js and its role in server-side
-                  JavaScript development.
-                </p>
-                <button type="button" class="btn btn-outline-success text-capitalize">
-                  learn more
-                </button>
-              </div>
-            </div>
-          </div> 
+          <% }); %>
+        </div>
   </section>
 </main>
-
-

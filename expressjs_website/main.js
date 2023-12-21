@@ -1,8 +1,17 @@
+require("dotenv").config();
 const viewsController = require("./controllers/viewsController"),
    errorController = require("./controllers/errorController"),
-   layouts = require("express-ejs-layouts");
+   Subscriber = require("./models/subscriber"),
+   layouts = require("express-ejs-layouts"),
+   mongoose = require("mongoose"),
    express = require("express"),
    app = express();
+
+mongoose.connect(process.env.URI)
+   .then(() => {
+      console.log("Connected to the mongoDB database");
+   })
+   .catch((error) => console.log(error));
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -14,21 +23,13 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-   viewsController.renderView("index", "Node.js Course", req, res);
-});
+app.get("/", viewsController.renderIndex);
 
-app.get("/overview", (req, res) => {
-   viewsController.renderView("overview", "Course Overview", req, res);
-});
+app.get("/overview", viewsController.renderCourseModules);
 
-app.get("/instructors", (req, res) => {
-   viewsController.renderView("instructors", "Our Instructors", req, res);
-});
+app.get("/instructors", viewsController.renderInstructors);
 
-app.get("/contact", (req, res) => {
-   viewsController.renderView("contact", "Get in Touch", req, res);
-});
+app.get("/contact", viewsController.renderContact);
 
 app.use(viewsController.logReqPath);
 app.use(errorController.logErrors);
